@@ -2,15 +2,9 @@ SELECT
     INGREDIENT_TYPE, 
     SUM(TOTAL_ORDER) AS TOTAL_ORDER
 FROM 
-    (
-        SELECT 
-            i.FLAVOR, 
-            i.INGREDIENT_TYPE, 
-            f.TOTAL_ORDER
-        FROM 
-            ICECREAM_INFO i
-            JOIN FIRST_HALF f ON i.FLAVOR = f.FLAVOR
-    ) t
+    ICECREAM_INFO i, FIRST_HALF f 
+where
+    i.FLAVOR = f.FLAVOR 
 GROUP BY 
     INGREDIENT_TYPE
 ORDER BY 
