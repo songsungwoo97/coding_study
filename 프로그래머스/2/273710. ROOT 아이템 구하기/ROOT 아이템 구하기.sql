@@ -1,16 +1,9 @@
 SELECT 
-    i.ITEM_ID, 
-    i.ITEM_NAME
+    i1.ITEM_ID, 
+    i1.ITEM_NAME
 FROM 
-    ITEM_INFO i
-WHERE 
-    i.ITEM_ID IN (
-        SELECT 
-            DISTINCT ITEM_ID
-        FROM 
-            ITEM_TREE
-        WHERE 
-            PARENT_ITEM_ID IS NULL
-    )
+    ITEM_INFO i1 join ITEM_TREE i2 on i1.ITEM_ID = i2.ITEM_ID
+where 
+    i2.PARENT_ITEM_ID is null
 ORDER BY 
-    i.ITEM_ID ASC;
+    i1.ITEM_ID ASC;
