@@ -39,9 +39,9 @@ vector<int> solution(vector<vector<int>> edges) {
     int eight = 0; //8자
         
     for(int i = 1; i <= max_node; i++) {
-        if(in[i] >= 2 && out[i] == 2)
+        if(in[i] >= 2 && out[i] >= 2)
             eight++;
-        if((in[i] >= 1 && out[i] == 0))
+        if((in[i] == 1 && out[i] == 0) || (in[i] == 0 && out[i] == 1))
             rod++;
     }
     donut = sum - eight - rod;
