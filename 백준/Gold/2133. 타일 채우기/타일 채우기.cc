@@ -8,7 +8,7 @@ int main()
     cin.tie(0);
     cout.tie(0);
 
-    long long dp[31] = {0};  // long long으로 변경하여 큰 수 처리
+    int dp[31] = {0};  // long long으로 변경하여 큰 수 처리
     int n;
     cin >> n;
 
