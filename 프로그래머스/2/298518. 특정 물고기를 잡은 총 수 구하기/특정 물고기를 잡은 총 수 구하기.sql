@@ -1,10 +1,3 @@
-SELECT
-    COUNT(*) AS FISH_COUNT
-FROM
-    FISH_INFO
-WHERE
-    FISH_TYPE IN (
-        SELECT FISH_TYPE
-        FROM FISH_NAME_INFO
-        WHERE FISH_NAME IN ('BASS', 'SNAPPER')
-    );
+select count(*) as FISH_COUNT
+from FISH_INFO fi, FISH_NAME_INFO fni
+where fi.FISH_TYPE = fni.FISH_TYPE and (fni.FISH_NAME = 'BASS' or fni.FISH_NAME = 'SNAPPER')
